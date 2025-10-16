@@ -17,7 +17,6 @@ int main()
         n /= 10;
     }
     reverse(v.begin(), v.end());
-
     sort(v.begin(), v.end());
     bool haveDuplicates = adjacent_find(v.begin(), v.end()) != v.end();
     if (haveDuplicates) cout << "Duplicates found";
