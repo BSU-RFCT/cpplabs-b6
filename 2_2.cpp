@@ -23,6 +23,7 @@ int main() {
         double y_series = sum + (x - 1.0);
         double y_exact = 1.0 / (1.0 + x) + (x - 1.0);
 
+
         cout << "x = " << x
              << "  y_series = " << y_series
              << "  y_exact = " << y_exact
