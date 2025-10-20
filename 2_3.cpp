@@ -1,17 +1,18 @@
 #include <iostream>
 #include <vector>
-#include <cmath>
 using namespace std;
 
-bool isPrime(const int num) {
+bool isPrime(const int num)
+{
     if (num < 2) return false;
-    for (int i = 2; i <= sqrt(num); ++i)
+    for (int i = 2; i * i <= num; ++i)
         if (num % i == 0)
             return false;
     return true;
 }
 
-int main() {
+int main()
+{
     int n;
     cout << "Введите количество сверхпростых чисел: ";
     cin >> n;
@@ -20,14 +21,15 @@ int main() {
     vector<int> superPrimes;
 
     int current = 2;
-    while (superPrimes.size() < n) {
+    while (superPrimes.size() < n)
+    {
         if (isPrime(current))
+        {
             primes.push_back(current);
 
-        const int index = primes.size();
-        if (isPrime(index))
-            superPrimes.push_back(current);
-
+            if (isPrime(primes.size()))
+                superPrimes.push_back(current);
+        }
         ++current;
     }
 

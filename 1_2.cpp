@@ -6,7 +6,7 @@ bool ifInArea()
     std::cout << "Введите x, y: ";
     std::cin >> x >> y;
 
-    return x >= -2 && x <= 1 && y >= x && y <= -x * x + 2;
+    return x >= -2 && y <= 1 && y >= x && y <= -x * x + 2;
 }
 
 int main()

@@ -2,7 +2,7 @@
 #include <iomanip>
 using namespace std;
 
-double poly_direct(double x, int& addCount, int& mulCount)
+double poly_direct(const double x, int& addCount, int& mulCount)
 {
     // y = -8x^8 + 6x^6 - 4x^4 + 2x^2 + 10
     double y = 10;

@@ -38,8 +38,8 @@ int main()
 
     case Random:
         {
-            random_device rd;                          // Источник энтропии (может быть аппаратным)
-            mt19937 gen(rd());                         // Mersenne Twister
+            random_device rd;
+            mt19937 gen(rd());
             uniform_int_distribution<> dist(-99, 99);
 
             for (int i = 0; i < n; ++i)
