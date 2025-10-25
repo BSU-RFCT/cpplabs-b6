@@ -1,20 +1,23 @@
 #include <iostream>
+using namespace std;
 
 bool ifInArea()
 {
     double x, y;
-    std::cout << "Введите x, y: ";
-    std::cin >> x >> y;
+    cout << "Введите x, y: ";
+    cin >> x >> y;
 
-    return x >= -2 && y <= 1 && y >= x && y <= -x * x + 2;
+    if ((x <= 0 && y < (-x*x + 2) && y >= x) || (x >= 0 && y < (-x*x + 2) && y <= x))
+        return true;
+    return false;
 }
 
 int main()
 {
     if (ifInArea())
-        std::cout << "Точка находится в синей области.\n";
+        cout << "Точка находится в синей области.\n";
     else
-        std::cout << "Точка вне синей области.\n";
+        cout << "Точка вне синей области.\n";
 
     return 0;
 }
