@@ -133,9 +133,9 @@ int main()
         "Программирование"
     };
 
-    auto students = generateStudents(1000, subjects);
+    auto students = generateStudents(4, subjects);
 
-    bool display_students = false;
+    bool display_students = 1;
     if (display_students) displayStudents(students);
 
     cout << "Просмотр оценок для предмета на определённом курсе\n";
