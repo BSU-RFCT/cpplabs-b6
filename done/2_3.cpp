@@ -1,3 +1,4 @@
+#include "2_3.h"
 #include <iostream>
 #include <cstring>
 #include <cctype>
@@ -15,10 +16,8 @@ int countConsonants(const char* word)
 {
     int count = 0;
     for (int i = 0; word[i] != '\0'; i++)
-    {
         if (isConsonant(word[i]))
             count++;
-    }
     return count;
 }
 
@@ -56,6 +55,7 @@ pair<int, vector<string>> findMaxConsonantWords(const string& input)
     return {maxCounter, maxWords};
 }
 
+#ifndef UNIT_TEST
 int main()
 {
     constexpr int SIZE = 256;
@@ -75,3 +75,4 @@ int main()
         cout << endl;
     }
 }
+#endif
