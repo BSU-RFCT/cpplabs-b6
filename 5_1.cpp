@@ -1,10 +1,16 @@
 #include <iostream>
 using namespace std;
 
-long long factorial(int n)
+void factorial(const int n, long long &result)
 {
-    return n <= 1 ? 1 : n * factorial(n - 1);
-} //TODO: Сделвть некоторые процедурами
+    if (n <= 1)
+        result = 1;
+    else
+    {
+        factorial(n - 1, result);
+        result *= n;
+    }
+}
 
 double power(double x, int n)
 {
@@ -16,24 +22,35 @@ double power(double x, int n)
     return result;
 }
 
-double absolute(double x)
+void absolute_ptr(double x, double *res)
 {
-    return (x < 0) ? -x : x;
+    *res = (x < 0) ? -x : x;
 }
 
-double series(double x, double eps, int& terms)
+double series(const double x, const double eps, int& terms)
 {
     double sum = 0;
-    double term;
     int k = 1;
+    long long fact;
 
-    while (absolute(term) >= eps)
+    factorial(2 * k + 1, fact);
+    double term = power(-1, k + 1) * power(x, 2 * k - 1) /
+                  ((2.0 * k - 1) * fact);
+
+    double abs_term;
+    absolute_ptr(term, &abs_term);
+
+    while (abs_term >= eps)
     {
-        term = power(-1, k + 1) * power(x, 2 * k - 1) /
-            ((2.0 * k - 1) * factorial(2 * k + 1));
         sum += term;
         ++terms;
         ++k;
+
+        factorial(2 * k + 1, fact);
+        term = power(-1, k + 1) * power(x, 2 * k - 1) /
+               ((2.0 * k - 1) * fact);
+
+        absolute_ptr(term, &abs_term);
     }
 
     return sum;
@@ -45,13 +62,13 @@ int main()
     cout << "Введите x (0 < x ≤ 1): ";
     cin >> x;
 
-    const double eps = 1e-6;
+    constexpr double eps = 1e-6;
     int terms = 0;
 
-    double result = series(x, eps, terms);
+    const double result = series(x, eps, terms);
 
     cout << "Сумма ряда: " << result << endl;
     cout << "Количество слагаемых: " << terms << endl;
 
     return 0;
-} //TODO: Починить, везде выдаёт ноль. Неявное преобразование типов а-ля float -> int???
+}

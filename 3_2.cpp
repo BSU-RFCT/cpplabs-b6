@@ -1,47 +1,52 @@
 #include <iostream>
-#include <climits>  // для INT_MIN
+#include <cstdlib>
+#include <ctime>
+#include <algorithm>
 using namespace std;
 
-int main() {
-    const int n = 3;
-    int a[n][n] = {
-        {1, 2, 3},
-        {4, 5, 6},
-        {7, 8, 9}
-    };
-    int b[n][n];
+constexpr int N = 10000;
 
-    int row_max[n];
-    int col_max[n];
+int A[N][N];
+int B[N][N];
 
-    for (int i = 0; i < n; i++) {
-        row_max[i] = INT_MIN;
-        for (int j = 0; j < n; j++) {
-            if (a[i][j] > row_max[i])
-                row_max[i] = a[i][j];
+void printMatrix(int M[N][N])
+{
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            cout << M[i][j] << "\t";
         }
+        cout << endl;
     }
+}
 
-    for (int j = 0; j < n; j++) {
-        col_max[j] = INT_MIN;
-        for (int i = 0; i < n; i++) {
-            if (a[i][j] > col_max[j])
-                col_max[j] = a[i][j];
+int main()
+{
+    srand(time(nullptr));
+
+    cout << "Матрица A:\n";
+    for (auto& i : A)
+    {
+        for (int& j : i)
+        {
+            j = rand() % 100;
+            cout << j << "\t";
         }
-    }
-
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            b[i][j] = (row_max[i] > col_max[j]) ? row_max[i] : col_max[j];
-        }
-    }
-
-    cout << "Матрица B:\n";
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++)
-            cout << b[i][j] << " ";
         cout << endl;
     }
 
-    return 0;
+    for (int i = 0; i < N; i++)
+        for (int j = 0; j < N; j++)
+        {
+            int mx = -1e9;
+            for (int x = max(0, i - 2); x <= i; x++)
+                for (int y = max(0, j - 2); y <= j; y++)
+                    mx = max(mx, A[x][y]);
+
+            B[i][j] = mx;
+        }
+
+    cout << "\nМатрица B:\n";
+    printMatrix(B);
 }

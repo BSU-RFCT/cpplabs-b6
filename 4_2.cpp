@@ -1,24 +1,41 @@
 #include <iostream>
-#include <algorithm>
 #include <climits>
+#include <cstring>
 using namespace std;
 
-pair<long long, long long> convertNumberParts(string str)
+pair<long long, long long> convertNumberParts(char* str)
 {
-    auto it = find(str.begin(), str.end(), '.');
-    int j = distance(str.begin(), it);
+    char* dot = strchr(str, '.');
 
-    long long integer_part = stoll(str.substr(0, j));
-    long long fractional_part = stoll(str.substr(j + 1));
+    long long integer_part = 0;
+    long long fractional_part = 0;
+
+    if (dot != nullptr)
+    {
+        *dot = '\0';
+        integer_part = atoll(str);
+
+        const char* fracStr = dot + 1;
+        fractional_part = atoll(fracStr);
+
+        *dot = '.';
+    }
+    else
+    {
+        integer_part = atoll(str);
+        fractional_part = 0;
+    }
 
     return {integer_part, fractional_part};
 }
 
 int main()
 {
-    string str;
+    char str[25];
     cout << "Введите вещественное число: ";
     cin >> str;
+
+    const float x = atof(str);
 
     pair<long long, long long> parts = convertNumberParts(str);
 
@@ -31,6 +48,8 @@ int main()
     {
         cout << "Целая часть (hex): " << hex << parts.first << endl;
         cout << "Дробная часть (hex): " << hex << parts.second << endl;
+        cout << "Кстати говоря, правильнее сказать " << hexfloat << x << endl;
+        cout << "Вот такие пироги...";
     }
 
     return 0;

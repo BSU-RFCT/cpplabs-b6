@@ -1,0 +1,3 @@
+[submodule "5_2"]
+	path = 5_2
+	url = https://github.com/BSU-RFCT/cpplabs-b7-5.2.git
