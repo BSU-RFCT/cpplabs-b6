@@ -7,7 +7,7 @@ int main()
     cout << "Размерn n: ";
     cin >> n;
 
-    if (n > 15) 
+    if (n > 15)
     {
         cout << "Максимум 15.\n";
         return 0;
@@ -16,7 +16,7 @@ int main()
     int A[15][15], B[15][15], B2[15][15], C[15][15];
 
     cout << "Матрица A:\n";
-    for (int i = 0; i < n; i++) 
+    for (int i = 0; i < n; i++)
     {
         for (int j = 0; j <= i; j++)
             cin >> A[i][j];
@@ -25,7 +25,7 @@ int main()
     }
 
     cout << "Матрицу B:\n";
-    for (int i = 0; i < n; i++) 
+    for (int i = 0; i < n; i++)
     {
         for (int j = 0; j <= i; j++)
             cin >> B[i][j];
@@ -34,7 +34,7 @@ int main()
     }
 
     for (int i = 0; i < n; i++)
-        for (int j = 0; j < n; j++) 
+        for (int j = 0; j < n; j++)
         {
             B2[i][j] = 0;
             for (int k = 0; k < n; k++)
@@ -45,7 +45,7 @@ int main()
         B2[i][i] += 1;
 
     for (int i = 0; i < n; i++)
-        for (int j = 0; j < n; j++) 
+        for (int j = 0; j < n; j++)
         {
             C[i][j] = 0;
             for (int k = 0; k < n; k++)
@@ -53,7 +53,7 @@ int main()
         }
 
     cout << "\nМатрица C = A * (E + B^2):\n";
-    for (int i = 0; i < n; i++) 
+    for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n; j++)
             cout << C[i][j] << " ";

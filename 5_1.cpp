@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-void factorial(const int n, long long &result)
+void factorial(const int n, long long& result)
 {
     if (n <= 1)
         result = 1;
@@ -22,7 +22,7 @@ double power(double x, int n)
     return result;
 }
 
-void absolute_ptr(double x, double *res)
+void absolute_ptr(double x, double* res)
 {
     *res = (x < 0) ? -x : x;
 }
@@ -35,7 +35,7 @@ double series(const double x, const double eps, int& terms)
 
     factorial(2 * k + 1, fact);
     double term = power(-1, k + 1) * power(x, 2 * k - 1) /
-                  ((2.0 * k - 1) * fact);
+        ((2.0 * k - 1) * fact);
 
     double abs_term;
     absolute_ptr(term, &abs_term);
@@ -48,7 +48,7 @@ double series(const double x, const double eps, int& terms)
 
         factorial(2 * k + 1, fact);
         term = power(-1, k + 1) * power(x, 2 * k - 1) /
-               ((2.0 * k - 1) * fact);
+            ((2.0 * k - 1) * fact);
 
         absolute_ptr(term, &abs_term);
     }

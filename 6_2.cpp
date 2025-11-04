@@ -29,15 +29,15 @@ CarNumber randomNumber()
 
 void printNumber(const CarNumber& num)
 {
-    cout << char('A' + num.parts.letter1)
-        << char('A' + num.parts.letter2)
+    cout << static_cast<char>('A' + num.parts.letter1)
+        << static_cast<char>('A' + num.parts.letter2)
         << setw(4) << setfill('0') << num.parts.digits
-        << "-" << unsigned(num.parts.region);
+        << "-" << num.parts.region;
 }
 
 int main()
 {
-    const int N = 2;
+    constexpr int N = 2;
     vector<CarNumber> cars(N);
 
     for (auto& c : cars)
