@@ -2,7 +2,8 @@
 #include <cmath>
 using namespace std;
 
-int main() {
+int main()
+{
     long long n;
     cout << "Введите n: ";
     cin >> n;
@@ -11,7 +12,8 @@ int main() {
     long long count = 9;
     long long range = digits * count;
 
-    while (n > range) {
+    while (n > range)
+    {
         n -= range;
         digits++;
         count *= 10;
@@ -22,7 +24,8 @@ int main() {
     long long number = start + (n - 1) / digits;
 
     int index = (n - 1) % digits;
-    for (int i = 0; i < digits - index - 1; i++) {
+    for (int i = 0; i < digits - index - 1; i++)
+    {
         number /= 10;
     }
 

@@ -55,7 +55,6 @@ pair<int, vector<string>> findMaxConsonantWords(const string& input)
     return {maxCounter, maxWords};
 }
 
-#ifndef UNIT_TEST
 int main()
 {
     constexpr int SIZE = 256;
@@ -75,4 +74,3 @@ int main()
         cout << endl;
     }
 }
-#endif

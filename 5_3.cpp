@@ -6,7 +6,7 @@ int** createMatrix(int& n, int& m)
     cout << "Введите размеры матрицы (n, m): ";
     cin >> n >> m;
 
-    auto M = new int*[n];
+    const auto M = new int*[n];
     for (int i = 0; i < n; i++)
         M[i] = new int[m];
 
@@ -18,7 +18,7 @@ int** createMatrix(int& n, int& m)
     return M;
 }
 
-void deleteMatrix(const int n, int** M) //! А вот если бы был vector...
+void deleteMatrix(const int n, int** M)
 {
     for (int i = 0; i < n; i++)
         delete[] M[i];

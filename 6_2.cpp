@@ -37,7 +37,7 @@ void printNumber(const CarNumber& num)
 
 int main()
 {
-    constexpr int N = 2;
+    constexpr int N = 20;
     vector<CarNumber> cars(N);
 
     for (auto& c : cars)

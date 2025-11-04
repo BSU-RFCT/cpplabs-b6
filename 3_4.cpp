@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-constexpr int MAX = 10000;
+constexpr int MAX = 1000;
 
 void multiply(int result[], int& size, const int n)
 {
@@ -44,7 +44,7 @@ int main()
         multiply(result, size, i);
 
     int count7 = 0;
-    for (int i = 0; i < 1; ++i)
+    for (int i = 0; i < size; ++i)
         if (result[i] == 7)
             count7++;
 

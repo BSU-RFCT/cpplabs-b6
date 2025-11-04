@@ -15,9 +15,21 @@ int main()
 
     if (mode == 1)
     {
-        if (x1 > x2) { swap(x1, x2); swap(n1, n2); }
-        if (x3 > x4) { swap(x3, x4); swap(n3, n4); }
-        if (x2 < x3) { swap(x2, x3); swap(n2, n3); }
+        if (x1 > x2)
+        {
+            swap(x1, x2);
+            swap(n1, n2);
+        }
+        if (x3 > x4)
+        {
+            swap(x3, x4);
+            swap(n3, n4);
+        }
+        if (x2 < x3)
+        {
+            swap(x2, x3);
+            swap(n2, n3);
+        }
     }
     else if (mode == 2)
     {

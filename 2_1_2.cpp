@@ -2,7 +2,8 @@
 #include <string>
 using namespace std;
 
-int main() {
+int main()
+{
     string x;
     cout << "Введите число: ";
     cin >> x;
@@ -12,13 +13,15 @@ int main() {
     cin >> n >> k;
 
     int pos = x.find_first_of(".,");
-    if (pos == -1) {
+    if (pos == -1)
+    {
         cout << "Нет дробной части." << endl;
         return 0;
     }
 
     string frac = x.substr(pos + 1);
-    if (n - 1 + k > static_cast<int>(frac.size())) {
+    if (n - 1 + k > static_cast<int>(frac.size()))
+    {
         cout << "Недостаточно цифр." << endl;
         return 0;
     }

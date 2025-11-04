@@ -4,7 +4,7 @@
 #include <algorithm>
 using namespace std;
 
-constexpr int N = 10000;
+constexpr int N = 10;
 
 int A[N][N];
 int B[N][N];

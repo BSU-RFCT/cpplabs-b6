@@ -7,7 +7,7 @@ bool ifInArea()
     cout << "Введите x, y: ";
     cin >> x >> y;
 
-    if ((x <= 0 && y < (-x*x + 2) && y >= x) || (x >= 0 && y < (-x*x + 2) && y <= x))
+    if ((x <= 0 && y < (-x * x + 2) && y >= x) || (x >= 0 && y < (-x * x + 2) && y <= x))
         return true;
     return false;
 }

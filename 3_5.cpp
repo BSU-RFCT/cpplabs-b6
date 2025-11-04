@@ -4,7 +4,7 @@ using namespace std;
 int main()
 {
     int n;
-    cout << "Размерn n: ";
+    cout << "Размер n: ";
     cin >> n;
 
     if (n > 15)
@@ -13,52 +13,66 @@ int main()
         return 0;
     }
 
-    int A[15][15], B[15][15], B2[15][15], C[15][15];
+    int** A = new int*[n];
+    int** B = new int*[n];
+    for (int i = 0; i < n; ++i)
+    {
+        A[i] = new int[i + 1];
+        B[i] = new int[i + 1];
+    }
 
     cout << "Матрица A:\n";
     for (int i = 0; i < n; i++)
-    {
         for (int j = 0; j <= i; j++)
             cin >> A[i][j];
-        for (int j = i + 1; j < n; j++)
-            A[i][j] = 0;
-    }
 
-    cout << "Матрицу B:\n";
+    cout << "Матрица B:\n";
     for (int i = 0; i < n; i++)
-    {
         for (int j = 0; j <= i; j++)
             cin >> B[i][j];
-        for (int j = i + 1; j < n; j++)
-            B[i][j] = 0;
-    }
+
+    int** B2 = new int*[n];
+    for (int i = 0; i < n; ++i)
+        B2[i] = new int[n]();
 
     for (int i = 0; i < n; i++)
         for (int j = 0; j < n; j++)
-        {
-            B2[i][j] = 0;
-            for (int k = 0; k < n; k++)
-                B2[i][j] += B[i][k] * B[k][j];
-        }
+            for (int k = 0; k <= min(i, k); k++)
+                if (k <= i && j <= k)
+                    B2[i][j] += B[i][k] * B[k][j];
 
     for (int i = 0; i < n; i++)
         B2[i][i] += 1;
 
+    int** C = new int*[n];
+    for (int i = 0; i < n; ++i)
+        C[i] = new int[n]();
+
     for (int i = 0; i < n; i++)
         for (int j = 0; j < n; j++)
-        {
-            C[i][j] = 0;
-            for (int k = 0; k < n; k++)
+            for (int k = 0; k <= i; k++)
                 C[i][j] += A[i][k] * B2[k][j];
-        }
 
     cout << "\nМатрица C = A * (E + B^2):\n";
     for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < n; j++)
+        for (int j = 0; j <= i; j++)
             cout << C[i][j] << " ";
         cout << endl;
     }
+
+
+    for (int i = 0; i < n; i++)
+    {
+        delete[] A[i];
+        delete[] B[i];
+        delete[] B2[i];
+        delete[] C[i];
+    }
+    delete[] A;
+    delete[] B;
+    delete[] B2;
+    delete[] C;
 
     return 0;
 }

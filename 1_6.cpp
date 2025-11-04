@@ -2,7 +2,8 @@
 #include <bitset>
 using namespace std;
 
-int main() {
+int main()
+{
     signed short int n;
     cout << "Введите число n (signed short int): ";
     cin >> n;

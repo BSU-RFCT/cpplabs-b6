@@ -20,7 +20,7 @@ int main()
     const double c3 = cross(x1 - x3, y1 - y3, -x3, -y3);
 
     const bool sameSign = (c1 >= -EPS && c2 >= -EPS && c3 >= -EPS) ||
-                    (c1 <= EPS && c2 <= EPS && c3 <= EPS);
+        (c1 <= EPS && c2 <= EPS && c3 <= EPS);
 
     if (sameSign)
         cout << "Точка (0,0) находится внутри или на границе треугольника" << endl;
